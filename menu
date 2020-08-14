@@ -1,1 +1,29 @@
+import csv
+import sys
 
+def main():
+  menu()
+  
+def menu():
+  print("Welcome to Hangman")
+  print()
+  
+  choice = input("""
+  A: Play
+  Q: Quit
+  
+  Please enter your choice: """)
+                    
+  if choice == 'A' or choice == 'a':
+    play()
+  elif choice == 'Q' or choice == 'q':
+    sys.exit
+  else:
+    print("You must only select A or Q")
+    print("Please try again")
+    menu()
+    
+def play():
+  pass
+
+menu()
