@@ -10,12 +10,15 @@ def menu():
   
   choice = input("""
   A: Play
+  B: How to play
   Q: Quit
   
   Please enter your choice: """)
                     
   if choice == 'A' or choice == 'a':
     play()
+  elif choice == 'B' or choice == 'b':
+    rules()
   elif choice == 'Q' or choice == 'q':
     sys.exit
   else:
@@ -24,6 +27,9 @@ def menu():
     menu()
     
 def play():
+  pass
+
+def rules():
   pass
 
 menu()
