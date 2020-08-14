@@ -1,11 +1,15 @@
 import requests
 import random
 
-word_site = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
-response = requests.get(word_site)
+wordsite = "https://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
+response = requests.get(wordsite)
 WORDS = response.content.splitlines()
 
 def randomword():
-  return random.choice(WORDS)
+  word = random.choice(WORDS)
+  if len(word) > 3:
+    return word
+  else:
+    randomword()
 
 print (randomword())
