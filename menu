@@ -30,16 +30,16 @@ def play():
   pass
 
 def rules():
-  str = """ Rules:
+  rules = """ Rules:
   The computer will randomly choose a word in a chosen category, you will then guess letters that may be in the word.
   If correct, the letter is written in where it belongs in the word.
   If incorrect, a part of the hangman picture is drawn in. This is equivalent to losing a life. You have 10 lives."""
-  print(str)
+  print(rules)
   
   choice = input("""
   A: Back to menu
   
-  Please enter your choice: """")
+  Please enter your choice: """)
   
   if choice == 'A' or choice == 'a':
     menu()
