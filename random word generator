@@ -1,7 +1,7 @@
 import requests
 import random
 
-wordsite = "https://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
+wordsite = "http://www.mieliestronk.com/corncob_lowercase.txt"
 response = requests.get(wordsite)
 WORDS = response.content.splitlines()
 
