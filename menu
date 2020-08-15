@@ -22,7 +22,7 @@ def menu():
   elif choice == 'Q' or choice == 'q':
     sys.exit
   else:
-    print("You must only select A or Q")
+    print("You must only select A, B or Q")
     print("Please try again")
     menu()
     
@@ -30,11 +30,10 @@ def play():
   pass
 
 def rules():
-  rules = """ Rules:
+  print(""" Rules:
   The computer will randomly choose a word, you will then guess letters that may be in the word.
   If correct, the letter is written in where it belongs in the word.
-  If incorrect, a part of the hangman picture is drawn in. This is equivalent to losing a life. You have 10 lives."""
-  print(rules)
+  If incorrect, a part of the hangman picture is drawn in. This is equivalent to losing a life. You have 10 lives.""")
   
   choice = input("""
   A: Back to menu
