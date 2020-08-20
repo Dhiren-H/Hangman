@@ -2,10 +2,8 @@ import csv
 import sys
 import requests
 import random
-
 def main():
   menu()
-
 def menu():
     print("Welcome to Hangman")
     print()
@@ -43,6 +41,10 @@ def play():
     print(Hangmanword)
     print(' _ ' * len(SecretWord))
     guess1 = input("  Guess a letter: ")
+    if guess1 in Hangmanword:
+        print('Well done!')
+    else:
+        print('Try again!')
 def rules():
     print(""" Rules:
   The computer will randomly choose a word, you will then guess letters that may be in the word.
