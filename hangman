@@ -2,8 +2,10 @@ import csv
 import sys
 import requests
 import random
+
 def main():
   menu()
+
 def menu():
     print("Welcome to Hangman")
     print()
@@ -25,7 +27,7 @@ def menu():
 def randomword():
     word = 'a'
     while len(word) < 4:
-        wordsite = "http://www.mieliestronk.com/corncob_lowercase.txt"
+        wordsite = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
         response = requests.get(wordsite)
         WORDS = response.content.splitlines()
         word = random.choice(WORDS)
@@ -33,6 +35,8 @@ def randomword():
     return word
 def wordsplit(word):
     return list(word)
+def strike(text):
+  return '--' + text + '--'
 def play():
     SecretWord = randomword()
     word = str(SecretWord)[2:-1:]
@@ -42,14 +46,24 @@ def play():
     print(' _ ' * len(SecretWord))
     guess1 = input("  Guess a letter: ")
     if guess1 in Hangmanword:
-        print('Well done!')
+      print('Well done!')
     else:
-        print('Try again!')
+      print(strike(guess1))
+      print('Unlucky!')
+    guess2 = input("  Guess a letter: ")
+    if guess2 != guess1 and guess2 in Hangmanword:
+      print('Well done!')
+    elif guess1 not in Hangmanword and guess2 not in Hangmanword:
+      print(strike(guess1) + ' and ' + strike(guess2))
+      print('Unlucky again!')
+    else:
+      print(strike(guess2))
+      print('Unlucky!')
 def rules():
     print(""" Rules:
-  The computer will randomly choose a word, you will then guess letters that may be in the word.
-  If correct, the letter is written in where it belongs in the word.
-  If incorrect, a part of the hangman picture is drawn in. This is equivalent to losing a life. You have 10 lives.""")
+  •The computer will randomly choose a word, you will then guess   letters that may be in the word.
+  •If correct, the letter is written in where it belongs in the    word.
+  •If incorrect, a part of the hangman picture is drawn in. This   is equivalent to losing a life. You have 10 lives.""")
     choice = input("""
   A: Back to menu
   Please enter your choice: """)
