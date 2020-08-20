@@ -29,9 +29,10 @@ def wordsplit(word):
     return list(word)
 def play():
     SecretWord = randomword()
-    word = str(SecretWord)
+    word = str(SecretWord)[2:-1:]
     print("  Length of word: " + str(len(SecretWord)))
-    print(wordsplit(word))
+    Hangmanword = wordsplit(word)
+    print(Hangmanword)
     guess1 = input("  Guess a letter: ")
 def rules():
     print(""" Rules:
