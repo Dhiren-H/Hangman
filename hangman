@@ -44,18 +44,20 @@ def play():
     Hangmanword = wordsplit(word)
     print(Hangmanword)
     print(' _ ' * len(SecretWord))
-    guess1 = input("  Guess a letter: ")
+    guess1 = input("Guess a letter: ")
     if guess1 in Hangmanword:
       print('Well done!')
     else:
       print(strike(guess1))
       print('Unlucky!')
-    guess2 = input("  Guess a letter: ")
+    guess2 = input("Guess a letter: ")
     if guess2 != guess1 and guess2 in Hangmanword:
       print('Well done!')
     elif guess1 not in Hangmanword and guess2 not in Hangmanword:
       print(strike(guess1) + ' and ' + strike(guess2))
       print('Unlucky again!')
+    elif guess2 == guess1:
+      print("You've guessed that already!")
     else:
       print(strike(guess2))
       print('Unlucky!')
